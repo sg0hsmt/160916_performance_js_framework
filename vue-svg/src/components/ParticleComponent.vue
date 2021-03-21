@@ -1,21 +1,20 @@
 <template>
   <g>
-    <rect
-      v-bind:x="particle.displayX"
-      v-bind:y="particle.displayY"
-      width="2"
-      height="2">
-    </rect>
+    <rect :x="particle.displayX" :y="particle.displayY" width="2" height="2" />
   </g>
 </template>
 
 <script>
-  export default {
-    name: 'ParticleComponent',
-    props: ['particle'],
-  };
+export default {
+  name: "ParticleComponent",
+  props: {
+    particle: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
+<style scoped></style>
