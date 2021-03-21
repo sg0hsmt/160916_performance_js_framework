@@ -38,10 +38,6 @@ export default {
     requestAnimationFrame(this.tick);
   },
   methods: {
-    handleChange: function(e) {
-      const num = Number(e.currentTarget.value);
-      this.emitOnFrame = num;
-    },
     /** エンターフレームイベントです。 */
     tick: function() {
       const particles = this.particles.concat();
