@@ -4,5 +4,3 @@ node_modules
 Thumbs.db
 npm-debug.log
 *.map
-package-lock.json
-yarn.lock
