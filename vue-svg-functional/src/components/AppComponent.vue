@@ -66,7 +66,7 @@ export default {
       if (this.innerHeight !== window.innerHeight) {
         this.innerHeight = window.innerHeight;
       }
-      this.particles = particles;
+      this.particles = Object.freeze(particles);
 
       // setTimeout(()=>{this.tick()}, 1000);
       requestAnimationFrame(this.tick);
