@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, shallowRef } from "vue";
+import { defineComponent, onMounted, ref, shallowRef, triggerRef } from "vue";
 
 import { ParticleData } from "../ParticleData";
 import ParticleComponent from "./ParticleComponent.vue";
@@ -30,14 +30,13 @@ export default defineComponent({
     ParticleComponent,
   },
   setup() {
-    const particles = shallowRef([]);
+    const buf = [];
+    const particles = shallowRef(buf);
     const emitOnFrame = ref(3);
     const innerWidth = ref(0);
     const innerHeight = ref(0);
 
     const tick = () => {
-      const buf = particles.value.concat();
-
       // 発生
       const width = innerWidth.value;
       const height = innerHeight.value;
@@ -64,7 +63,7 @@ export default defineComponent({
         innerHeight.value = window.innerHeight;
       }
 
-      particles.value = buf;
+      triggerRef(particles);
 
       requestAnimationFrame(tick);
     };
